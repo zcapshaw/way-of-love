@@ -11,7 +11,6 @@ class ChaptersScreen extends Component {
 		title: 'CHAPTERS',
 	};
 
-	//Grabs the data for the list from ChaptersList.json
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -19,16 +18,22 @@ class ChaptersScreen extends Component {
 		};
 	}
 
-	//When an item is clicked, dispatch that items details to the reducer
 	_onPressItem(item) {
 		this.props.dispatch({
 			type: 'LOAD_AUDIO',
 			name: item.name,
 			subtext: item.subtext,
 			image: item.image,
-			audio: item.audio, 
+			audio: item.audio,
 		});
 	}
+
+	_keyExtractor = (item, index) => index.toString();
+
+	// _renderItem = (item) =>
+
+
+
 
 	render() {
 		return (
@@ -37,42 +42,20 @@ class ChaptersScreen extends Component {
 					<FlatList
 						contentContainerStyle={styles.flatList}
 						data={this.state.data}
-
-						/* Function below adds conditional formatting to chapters
-						based on position in the list */
-						renderItem={({ item }) => {
-							if (item.key <= 2) { // First two use itemComplete styling
-								return (
-									<TouchableWithoutFeedback onPress={() => this._onPressItem(item)}>
-										<View style={[styles.chapterTile, styles.itemComplete]}>
-											<View style={styles.item}>
-												<Text style={styles.chapterText}>{ item.name }</Text>;
-												<Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
-											</View>
-											<View style={styles.icon}>
-												<Ionicons name="md-checkmark-circle" size={32} color="white" />
-											</View>
-										</View>
-									</TouchableWithoutFeedback>
-								);
-							}
-							return ( // else use item styling
-								<TouchableWithoutFeedback onPress={() => this._onPressItem(item)}>
-									<View style={styles.chapterTile}>
-										<View style={styles.item}>
-											<Text style={styles.chapterText}>{ item.name }</Text>;
-											<Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
-										</View>
-										<View style={styles.icon}>
-											<Ionicons name="ios-play" size={32} color="white" />
-										</View>
-									</View>
-								</TouchableWithoutFeedback>
-							);
+						keyExtractor={this._keyExtractor}
+						renderItem={({ item }) =>
+						<TouchableWithoutFeedback onPress={() => this._onPressItem(item)}>
+							<View style={[styles.chapterTile, styles.itemComplete]}>
+								<View style={styles.item}>
+									<Text style={styles.chapterText}>{ item.name }</Text>
+									<Text style={styles.chapterSubtext}>{ item.subtext }</Text>
+								</View>
+								<View style={styles.icon}>
+									<Ionicons name="md-checkmark-circle" size={32} color="white" />
+								</View>
+							</View>
+						</TouchableWithoutFeedback>
 						}
-					}
-					//Added because of error thrown because it wanted index as string
-					keyExtractor={(item, index) => index.toString()}
 					/>
 				</ScrollView>
 			<View><PlayerFooter /></View>

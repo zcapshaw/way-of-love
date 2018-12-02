@@ -41,7 +41,7 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-home${focused ? '' : '-outline'}`
+          ? `ios-home`
           : 'md-home'
       }
     />
@@ -80,7 +80,7 @@ ChaptersStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios'
-         ? `ios-paper${focused ? '' : '-outline'}`
+         ? `ios-paper`
          : 'md-paper'}
     />
   ),
@@ -122,7 +122,7 @@ CommentariesStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios'
-      ? `ios-headset${focused ? '' : '-outline'}`
+      ? `ios-headset`
       : 'md-headset'}
     />
   ),
