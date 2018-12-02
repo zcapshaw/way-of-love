@@ -141,8 +141,6 @@ export default class AudioPlayer extends React.Component {
     }
   };
 
-
-
   _onSeekSliderValueChange = value => {
     if (this.playbackInstance != null && !this.isSeeking) {
       this.isSeeking = true;

@@ -9,7 +9,7 @@ import TextBlock from '../components/TextBlock';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'THE FORGOTTEN WAY',
+    title: 'THE WAY OF LOVE',
   };
 
   _onPressButton() {
