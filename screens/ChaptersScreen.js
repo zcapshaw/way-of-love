@@ -30,10 +30,19 @@ class ChaptersScreen extends Component {
 
 	_keyExtractor = (item, index) => index.toString();
 
-	// _renderItem = (item) =>
-
-
-
+	_renderItem = ({ item }) => (
+		<TouchableWithoutFeedback onPress={() => this._onPressItem(item)}>
+			<View style={[styles.chapterTile, styles.itemComplete]}>
+				<View style={styles.item}>
+					<Text style={styles.chapterText}>{ item.name }</Text>
+					<Text style={styles.chapterSubtext}>{ item.subtext }</Text>
+				</View>
+				<View style={styles.icon}>
+					<Ionicons name="md-checkmark-circle" size={32} color="white" />
+				</View>
+			</View>
+		</TouchableWithoutFeedback>
+	);
 
 	render() {
 		return (
@@ -43,19 +52,7 @@ class ChaptersScreen extends Component {
 						contentContainerStyle={styles.flatList}
 						data={this.state.data}
 						keyExtractor={this._keyExtractor}
-						renderItem={({ item }) =>
-						<TouchableWithoutFeedback onPress={() => this._onPressItem(item)}>
-							<View style={[styles.chapterTile, styles.itemComplete]}>
-								<View style={styles.item}>
-									<Text style={styles.chapterText}>{ item.name }</Text>
-									<Text style={styles.chapterSubtext}>{ item.subtext }</Text>
-								</View>
-								<View style={styles.icon}>
-									<Ionicons name="md-checkmark-circle" size={32} color="white" />
-								</View>
-							</View>
-						</TouchableWithoutFeedback>
-						}
+						renderItem={this._renderItem}
 					/>
 				</ScrollView>
 			<View><PlayerFooter /></View>

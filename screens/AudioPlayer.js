@@ -108,15 +108,13 @@ export default class AudioPlayer extends React.Component {
         isPlaying: status.isPlaying,
         isBuffering: status.isBuffering,
       });
-    } else {
-      if (status.error) {
+    } else if (status.error) {
         console.log(`FATAL PLAYER ERROR: ${status.error}`);
       }
-    }
   };
 
   _onLoadStart = () => {
-    console.log(`ON LOAD START`);
+    console.log('ON LOAD START');
   };
 
   _onLoad = status => {
@@ -206,7 +204,7 @@ export default class AudioPlayer extends React.Component {
 
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
 
     return (
 
@@ -218,7 +216,7 @@ export default class AudioPlayer extends React.Component {
       <LinearGradient
           colors={['#414345', '#000']}
           style={styles.backgroundStyle}
-        >
+      >
         <View style={styles.playerContainer}>
            <Image
              style={styles.imageStyle}
@@ -245,12 +243,14 @@ export default class AudioPlayer extends React.Component {
             styles.buttonContainer,
             {
               opacity: this.state.isLoading ? DISABLED_OPACITY : 1.0,
-            },
-          ]}>
+            }
+          ]}
+        >
 
           <TouchableWithoutFeedback
             onPress={this._onPlayPausePressed}
-            disabled={this.state.isLoading}>
+            disabled={this.state.isLoading}
+          >
               {this.state.isPlaying ?
                 <Ionicons name="ios-pause" size={120} color="white" /> :
                 <Ionicons name="ios-play" size={120} color="white" />}
@@ -262,7 +262,8 @@ export default class AudioPlayer extends React.Component {
             {
               opacity: this.state.isLoading ? DISABLED_OPACITY : 1.0,
             },
-          ]}>
+          ]}
+        >
           <Slider
             style={styles.playbackSlider}
             value={this._getSeekSliderPosition()}
@@ -280,10 +281,10 @@ export default class AudioPlayer extends React.Component {
           </View>
         </View>
 
-
         {this.state.showVideo ? (
           <View />
         ) : null}
+
           </LinearGradient>
       </View>
     );
@@ -291,14 +292,6 @@ export default class AudioPlayer extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
-  // container: {
-  //   flex: 1,
-  //   flexDirection: 'column',
-  //   alignItems: 'center',
-  //   alignSelf: 'stretch',
-  //   backgroundColor: 'gray'
-  // },
 
   playbackContainer: {
     flex: 0.5,
@@ -319,12 +312,14 @@ const styles = StyleSheet.create({
   buffering: {
     textAlign: 'left',
     paddingLeft: 20,
-    color: 'white'
+    color: 'white',
+    fontFamily: 'lato-regular'
   },
   timestamp: {
     textAlign: 'right',
     paddingRight: 20,
-    color: 'white'
+    color: 'white',
+    fontFamily: 'lato-regular'
   },
   buttonContainer: {
     flex: 0.3,
@@ -333,13 +328,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'center'
-
   },
   container: {
-  flex: 1,
-  justifyContent: 'center',
-  backgroundColor: '#fff',
-},
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
   transparentContainer: {
     flex: 0.08,
     backgroundColor: 'transparent',
@@ -362,12 +356,14 @@ const styles = StyleSheet.create({
   },
   chapterLabel: {
     fontSize: 40,
+    fontFamily: 'lato-black',
     textAlign: 'center',
     color: 'white',
     paddingTop: 10
   },
   subtext: {
     fontSize: 20,
+    fontFamily: 'lato-regular'
   },
 
 });
