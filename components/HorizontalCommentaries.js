@@ -4,11 +4,13 @@ import {
   Text,
   FlatList,
   View,
-  ImageBackground
+  ImageBackground,
+  TouchableOpacity
 } from 'react-native';
+import { connect } from 'react-redux';
 import data from '../constants/CoreTruths.json';
 
-export default class HorizontalCommentaries extends Component {
+class HorizontalCommentaries extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
@@ -16,17 +18,32 @@ export default class HorizontalCommentaries extends Component {
 		};
 	}
 
+  //When an item is clicked, dispatch that items details to the reducer
+  _onPressItem(item) {
+    this.props.dispatch({
+      type: 'LOAD_AUDIO',
+      name: item.name,
+      subtext: item.subtext,
+      image: item.image,
+      audio: item.audio,
+    });
+  //Activate the below line when we're ready to load store in new AudioPlayer
+  //this.props.navigation.navigate('Modal');
+  }
+
   _renderItem = ({ item }) => (
-    <ImageBackground
-      source={{ uri: item.image }}
-      style={styles.item}
-    >
-      <Text style={styles.itemText}>{item.shortname}</Text>
-    </ImageBackground>
+    <TouchableOpacity onPress={() => this._onPressItem(item)}>
+      <ImageBackground
+        source={{ uri: item.image }}
+        style={styles.item}
+      >
+        <Text style={styles.itemText}>{item.shortname}</Text>
+      </ImageBackground>
+    </TouchableOpacity>
   );
 
   render() {
-    console.log(this.state)
+    console.log(this.props.loadedAudio);
     return (
       <View style={styles.contentContainer}>
         <FlatList
@@ -40,6 +57,12 @@ export default class HorizontalCommentaries extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+	return { loadedAudio: state.loadedAudio };
+};
+
+export default connect(mapStateToProps)(HorizontalCommentaries);
 
 const styles = StyleSheet.create({
   contentContainer: {
