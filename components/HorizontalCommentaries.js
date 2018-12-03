@@ -18,7 +18,7 @@ export default class HorizontalCommentaries extends Component {
 
   _renderItem = ({ item }) => (
     <ImageBackground
-      source={{ uri: 'https://images.unsplash.com/photo-1534608176107-b67f671733b3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2eaaaa01848d4a9c31b21a3b9165af6f&auto=format&fit=crop&w=1052&q=80' }}
+      source={{ uri: item.image }}
       style={styles.item}
     >
       <Text style={styles.itemText}>{item.shortname}</Text>
@@ -28,7 +28,7 @@ export default class HorizontalCommentaries extends Component {
   render() {
     console.log(this.state)
     return (
-      <View style={[styles.contentContainer, styles.commentariesContainer]}>
+      <View style={styles.contentContainer}>
         <FlatList
           data={this.state.data}
           horizontal
@@ -45,9 +45,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 10,
     paddingBottom: 20,
-  },
-  commentariesContainer: {
-    flex: 1,
+    flex: 1
   },
   item: {
     marginLeft: 20,
@@ -68,5 +66,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'lato-black',
     textAlign: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10
   },
 });
