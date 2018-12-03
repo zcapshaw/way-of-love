@@ -1,0 +1,42 @@
+[
+  {
+    "key": "1",
+    "name": "Core Truth #1: Lorem Ipsum",
+    "shortname": "Core\n Truth #1",
+    "subtext": "8 minutes, 38 seconds",
+    "image": "https://images.unsplash.com/photo-1541832069-e4f383392e1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a561f6a5179df29e8729877d4ff80b32&auto=format&fit=crop&w=500&q=60",
+    "audio": "http://russprince.com/hobbies/files/13%20Beethoven%20-%20Fur%20Elise.mp3"
+  },
+  {
+    "key": "2",
+    "name": "Core Truth #2: Lorem Ipsum",
+    "shortname": "Core\n Truth #2",
+    "subtext": "5 minutes, 22 seconds",
+    "image": "https://images.unsplash.com/photo-1541796484625-7f5bcba550cc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ac759f3f244b417ca48e7f15b8e0b7d8&auto=format&fit=crop&w=500&q=60",
+    "audio": "http://russprince.com/hobbies/files/13%20Beethoven%20-%20Fur%20Elise.mp3"
+  },
+  {
+    "key": "3",
+    "name": "Core Truth #3: Lorem Ipsum",
+    "shortname": "Core\n Truth #3",
+    "subtext": "4 minutes, 29 seconds",
+    "image": "https://images.unsplash.com/photo-1541789094913-f3809a8f3ba5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ba555c8bb03ffabb86e6ecf9ec4243c&auto=format&fit=crop&w=500&q=60",
+    "audio": "http://russprince.com/hobbies/files/13%20Beethoven%20-%20Fur%20Elise.mp3"
+  },
+  {
+    "key": "4",
+    "name": "Core Truth #4: Lorem Ipsum",
+    "shortname": "Core\n Truth #4",
+    "subtext": "5 minutes, 32 seconds",
+    "image": "https://images.unsplash.com/photo-1541746951956-4f27df54f02b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=027b183a2e7e5c8cb657862b34db5530&auto=format&fit=crop&w=500&q=60",
+    "audio": "http://russprince.com/hobbies/files/13%20Beethoven%20-%20Fur%20Elise.mp3"
+  },
+  {
+    "key": "5",
+    "name": "Core Truth #5: Lorem Ipsum",
+    "shortname": "Core\n Truth #5",
+    "subtext": "6 minutes, 52 seconds",
+    "image": "https://images.unsplash.com/photo-1541753231552-fa0b6f0c4d7c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2887fd5cf1d3eae72545fe3d8cdd5a04&auto=format&fit=crop&w=500&q=60",
+    "audio": "http://russprince.com/hobbies/files/13%20Beethoven%20-%20Fur%20Elise.mp3"
+  },
+]
